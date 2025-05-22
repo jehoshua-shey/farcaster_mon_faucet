@@ -17,6 +17,6 @@ export const metadata = {
     'fc:frame:button:1:target': 'https://farcaster-mon-faucet.vercel.app/',
     'fc:frame:button:1:name': 'Monverge Free MON Faucet', // Optional: App name
     'fc:frame:button:1:splashImageUrl': 'https://farcaster-mon-faucet.vercel.app/splash.png', // Optional: Splash image
-    'fc:frame:button:1:splashBackgroundColor': '#ffffff', // Optional: Splash background color
+    'fc:frame:button:1:splashBackgroundColor': '#000000', // Optional: Splash background color
   },
 };
