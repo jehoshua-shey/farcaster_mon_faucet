@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
+import { FrameProvider } from '@/components/farcaster-provider';
 
 export const metadata: Metadata = {
     title: 'Claim free mon from Monverge',
@@ -13,7 +14,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <FrameProvider>
+                    {children}
+                </FrameProvider>
+            </body>
         </html>
     );
 }
