@@ -13,7 +13,7 @@ const frame = {
       name: "Monverge Free MON Faucet",
       url: APP_URL,
       splashImageUrl: `${APP_URL}/splash.png`,
-      splashBackgroundColor: "#000000",
+      splashBackgroundColor: "#ffffff",
     },
   },
 };

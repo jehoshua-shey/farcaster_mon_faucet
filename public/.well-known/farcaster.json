@@ -12,7 +12,7 @@
     "imageUrl": "https://farcaster-mon-faucet.vercel.app/image.png",
     "buttonTitle": "Claim $MON",
     "splashImageUrl": "https://farcaster-mon-faucet.vercel.app/splash.png",
-    "splashBackgroundColor": "#000000",
+    "splashBackgroundColor": "#ffffff",
     "webhookUrl": "https://farcaster-mon-faucet.vercel.app/api/webhook"
   }
 }
