@@ -6,13 +6,13 @@
   },
   "frame": {
     "version": "1",
-    "name": "Example Frame",
+    "name": "Monverge Free MON Faucet",
     "iconUrl": "https://farcaster-mon-faucet.vercel.app/icon.png",
     "homeUrl": "https://farcaster-mon-faucet.vercel.app",
     "imageUrl": "https://farcaster-mon-faucet.vercel.app/image.png",
-    "buttonTitle": "Check this out",
+    "buttonTitle": "Claim $MON",
     "splashImageUrl": "https://farcaster-mon-faucet.vercel.app/splash.png",
-    "splashBackgroundColor": "#eeccff",
+    "splashBackgroundColor": "#ffffff",
     "webhookUrl": "https://farcaster-mon-faucet.vercel.app/api/webhook"
   }
 }
