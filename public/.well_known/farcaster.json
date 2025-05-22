@@ -1,18 +1,18 @@
 {
   "accountAssociation": {
-    "header": "eyJmaWQiOjM2MjEsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgyY2Q4NWEwOTMyNjFmNTkyNzA4MDRBNkVBNjk3Q2VBNENlQkVjYWZFIn0",
-    "payload": "eyJkb21haW4iOiJ5b3VyZG9tYWluLmNvbSJ9",
-    "signature": "YOUR_SIGNATURE_HERE"
+    "header": "eyJmaWQiOjEwODQxMjAsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhjZGRFZWFCOTcwOGFkZDliNDkyYTk5MGY5MTc1QzQ4N0Q4QzI2ZTM5In0",
+    "payload": "eyJkb21haW4iOiJmYXJjYXN0ZXItbW9uLWZhdWNldC52ZXJjZWwuYXBwIn0",
+    "signature": "MHg3NzY1NDBmYzY4YTk4ZGZkMjE3Nzk0ZTBiMzg2ZDdkYjM1YTcyMWUxZTAwMDM1MDQ2Nzg4YjAzNGRlN2Y4OGE5NjBiNTZiN2E4YjJjNjcyOWQyZTMxNjJmMGM1NTk1MWI1NTFiZWZjMjlmMTRmYmI5OTQ3OTdiYTJmMzA3ZDQ4MzFj"
   },
   "frame": {
     "version": "1",
-    "name": "MON Claim",
-    "iconUrl": "https://yourdomain.com/logo.png",
-    "homeUrl": "https://yourdomain.com/",
-    "imageUrl": "https://yourdomain.com/og-image.png",
-    "buttonTitle": "Claim MON",
-    "splashImageUrl": "https://yourdomain.com/splash.png",
-    "splashBackgroundColor": "#ffffff",
-    "webhookUrl": "https://yourdomain.com/api/webhook"
+    "name": "Example Frame",
+    "iconUrl": "https://farcaster-mon-faucet.vercel.app/icon.png",
+    "homeUrl": "https://farcaster-mon-faucet.vercel.app",
+    "imageUrl": "https://farcaster-mon-faucet.vercel.app/image.png",
+    "buttonTitle": "Check this out",
+    "splashImageUrl": "https://farcaster-mon-faucet.vercel.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://farcaster-mon-faucet.vercel.app/api/webhook"
   }
 }
