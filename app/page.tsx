@@ -10,13 +10,14 @@ export default function Home() {
 
 export const metadata = {
   other: {
-    'fc:frame': 'next',
-    'fc:frame:image': 'https://farcaster-mon-faucet.vercel.app/image.png',
-    'fc:frame:button:1': 'Claim MON',
-    'fc:frame:button:1:action': 'launch_frame',
-    'fc:frame:button:1:target': 'https://farcaster-mon-faucet.vercel.app/',
-    'fc:frame:button:1:name': 'Monverge Free MON Faucet', // Optional: App name
-    'fc:frame:button:1:splashImageUrl': 'https://farcaster-mon-faucet.vercel.app/splash.png', // Optional: Splash image
-    'fc:frame:button:1:splashBackgroundColor': '#000000', // Optional: Splash background color
+    'fc:frame': 'vNext', // Use 'vNext' for latest Farcaster Frame version
+    'fc:frame:image': 'https://farcaster-mon-faucet.vercel.app/image.png', // Image for Frame (3:2 ratio, e.g., 1200x800)
+    'fc:frame:image:aspect_ratio': '1.91:1', // Recommended for consistent rendering
+    'fc:frame:button:1': 'Claim $MON', // Button text
+    'fc:frame:button:1:action': 'link', // Changed to 'link' for external URL
+    'fc:frame:button:1:target': 'https://farcaster-mon-faucet.vercel.app/', // URL to open Mini App
+    'fc:frame:name': 'Monverge Free MON Faucet', // App name
+    'fc:frame:splashImageUrl': 'https://farcaster-mon-faucet.vercel.app/splash.png', // Splash image
+    'fc:frame:splashBackgroundColor': '#000000', // Splash background color
   },
 };
