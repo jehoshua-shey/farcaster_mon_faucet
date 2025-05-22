@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjM2MjEsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgyY2Q4NWEwOTMyNjFmNTkyNzA4MDRBNkVBNjk3Q2VBNENlQkVjYWZFIn0",
+    "payload": "eyJkb21haW4iOiJ5b3VyZG9tYWluLmNvbSJ9",
+    "signature": "YOUR_SIGNATURE_HERE"
+  },
+  "frame": {
+    "version": "1",
+    "name": "MON Claim",
+    "iconUrl": "https://yourdomain.com/logo.png",
+    "homeUrl": "https://yourdomain.com/",
+    "imageUrl": "https://yourdomain.com/og-image.png",
+    "buttonTitle": "Claim MON",
+    "splashImageUrl": "https://yourdomain.com/splash.png",
+    "splashBackgroundColor": "#ffffff",
+    "webhookUrl": "https://yourdomain.com/api/webhook"
+  }
+}
