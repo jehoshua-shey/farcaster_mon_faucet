@@ -7,7 +7,7 @@ import oneTimeClaimAbi from '../abis/OneTimeClaim.json';
 const CONTRACT_ADDRESS = '0xDE6A62F2d7EE3e835239d626B2430B0726EABBAd';
 
 const monadTestnet = {
-  id: 1234, // Chain ID
+  id: 10143, // Chain ID
   name: 'Monad Testnet',
   network: 'monad-testnet',
   nativeCurrency: {
