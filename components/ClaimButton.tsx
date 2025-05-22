@@ -129,13 +129,13 @@ export default function ClaimButton() {
         address: CONTRACT_ADDRESS,
         abi: oneTimeClaimAbi,
         functionName: 'claim',
-        account: `0x${address}`, // Fixed: Removed `0x${address}`
+        account: `0x${address.slice(2)}`, // Fixed: Removed `0x${address}`
       });
       const hash = await walletClient.writeContract({
         address: CONTRACT_ADDRESS,
         abi: oneTimeClaimAbi,
         functionName: 'claim',
-        account: `0x${address}`, // Fixed: Removed `0x${address}`
+        account: `0x${address.slice(2)}`, // Fixed: Removed `0x${address}`
         chain: monadTestnet,
       });
       const receipt = await publicClient.waitForTransactionReceipt({ hash });
