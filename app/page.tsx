@@ -1,4 +1,22 @@
 import ClaimButton from '@/components/ClaimButton';
+import { Metadata } from "next";
+
+const APP_URL = "https://farcaster-mon-faucet.vercel.app"
+
+const frame = {
+  version: "next",
+  imageUrl: `${APP_URL}/image.png`,
+  button: {
+    title: "Claim $MON",
+    action: {
+      type: "launch_frame",
+      name: "Monverge Free MON Faucet",
+      url: APP_URL,
+      splashImageUrl: `${APP_URL}/splash.png`,
+      splashBackgroundColor: "#000000",
+    },
+  },
+};
 
 export default function Home() {
   return (
@@ -8,16 +26,10 @@ export default function Home() {
   );
 }
 
-export const metadata = {
-  other: {
-    'fc:frame': 'vNext', // Use 'vNext' for latest Farcaster Frame version
-    'fc:frame:image': 'https://farcaster-mon-faucet.vercel.app/image.png', // Image for Frame (3:2 ratio, e.g., 1200x800)
-    'fc:frame:image:aspect_ratio': '1.91:1', // Recommended for consistent rendering
-    'fc:frame:button:1': 'Claim $MON', // Button text
-    'fc:frame:button:1:action': 'link', // Changed to 'link' for external URL
-    'fc:frame:button:1:target': 'https://farcaster-mon-faucet.vercel.app/', // URL to open Mini App
-    'fc:frame:name': 'Monverge Free MON Faucet', // App name
-    'fc:frame:splashImageUrl': 'https://farcaster-mon-faucet.vercel.app/splash.png', // Splash image
-    'fc:frame:splashBackgroundColor': '#000000', // Splash background color
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    other: {
+      "fc:frame": JSON.stringify(frame),
+    },
+  };
+}
