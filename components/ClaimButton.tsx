@@ -2,10 +2,34 @@
 
 import { useEffect, useState } from 'react';
 import { createPublicClient, createWalletClient, custom, http } from 'viem';
-import { monadTestnet } from '../viem.config';
 import oneTimeClaimAbi from '../abis/OneTimeClaim.json';
 
 const CONTRACT_ADDRESS = '0xDE6A62F2d7EE3e835239d626B2430B0726EABBAd';
+
+const monadTestnet = {
+  id: 1234, // Chain ID
+  name: 'Monad Testnet',
+  network: 'monad-testnet',
+  nativeCurrency: {
+    name: 'MONAD',
+    symbol: 'MON',
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://testnet-rpc.monad.xyz'],
+    },
+    public: {
+      http: ['https://testnet-rpc.monad.xyz'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Monad Explorer',
+      url: 'https://testnet.monadexplorer.com/',
+    },
+  },
+};
 
 export default function ClaimButton() {
   const [address, setAddress] = useState<string | null>(null);
