@@ -46,7 +46,7 @@ const monadTestnet = {
 };
 
 export default function ClaimButton() {
-  const [hasClaimed, setHasClaimed] = useState<boolean | null>(null);
+  const [hasClaim, setHasClaim] = useState<boolean | null>(null);
   const [txnHash, setTxnHash] = useState() as any
   const [isClaiming, setIsClaiming] = useState(false);
   const [errormsg, setErrormsg] = useState<string | null>(null);
@@ -70,6 +70,14 @@ export default function ClaimButton() {
     error,
     data: txHash
   } = useWriteContract();
+  const {
+    data: hasClaimed,
+  }: any = useReadContract({
+    abi: oneTimeClaimAbi,
+    address: CONTRACT_ADDRESS,
+    functionName: 'hasClaimed',
+    args: [address],
+  })
 
 
 
@@ -77,50 +85,14 @@ export default function ClaimButton() {
 
 
   // Check txn status
-  useEffect(() => {
-    if (isSuccess) {
-      setSuccess(true);
-      setHasClaimed(true);
-    }
-    else if (isError) {
-      setErrormsg('Transaction failed');
-    }
-  }, [hash]);
+
 
   // Connect wallet
 
   // Switch to Monad testnet
 
   // Check claim status
-  useEffect(() => {
-    if (address) {
-      try {
-        const {
-          data: hasClaimed,
-          isLoading,
-          isError,
-        } = useReadContract({
-          abi: oneTimeClaimAbi,
-          address: CONTRACT_ADDRESS,
-          functionName: 'hasClaimed',
-          args: [address],
-        })
 
-        setClaimRes(hasClaimed)
-
-        if (hasClaimed) {
-          setHasClaimed(true)
-          alert(hasClaimed)
-        } else {
-          alert(hasClaimed)
-          setHasClaimed(false)
-          setErrormsg('Failed to check claim status');
-        }
-      } catch (error: any) {
-        console.error(error);
-      }
-    }
-  }, [address]);
 
 
 
@@ -169,12 +141,12 @@ export default function ClaimButton() {
       ) : (
         <>
           <p>Connected Address: {address}</p>
-          {hasClaimed === null ? (
+          {hasClaim === null ? (
             <React.Fragment>
-              <p>{claimRes}</p>
+              <p>{hasClaimed}</p>
               <p>Checking claim status...</p>
             </React.Fragment>
-          ) : hasClaimed ? (
+          ) : hasClaim ? (
             <p>You have already claimed 0.1 MON.</p>
           ) : (
             <button onClick={handleClaim} disabled={isClaiming}>
