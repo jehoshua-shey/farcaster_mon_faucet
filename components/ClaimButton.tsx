@@ -87,37 +87,38 @@ export default function ClaimButton() {
     }
   }, [hash]);
 
-  // Check claim
+  // Connect wallet
 
-  const checkClaim = async () => {
-    try {
-      const result = await useReadContract({
-        abi: oneTimeClaimAbi,
-        address: CONTRACT_ADDRESS,
-        functionName: 'hasClaimed',
-        args: [address],
-      })
-
-      setClaimRes(result)
-
-      if (result) {
-        setHasClaimed(true)
-        alert(result)
-      } else {
-        alert(result)
-        setHasClaimed(false)
-        setErrormsg('Failed to check claim status');
-      }
-    } catch (error: any) {
-      console.error(error);
-    }
-  }
   // Switch to Monad testnet
 
   // Check claim status
   useEffect(() => {
     if (address) {
-      checkClaim()
+      try {
+        const {
+          data: hasClaimed,
+          isLoading,
+          isError,
+        } = useReadContract({
+          abi: oneTimeClaimAbi,
+          address: CONTRACT_ADDRESS,
+          functionName: 'hasClaimed',
+          args: [address],
+        })
+
+        setClaimRes(hasClaimed)
+
+        if (hasClaimed) {
+          setHasClaimed(true)
+          alert(hasClaimed)
+        } else {
+          alert(hasClaimed)
+          setHasClaimed(false)
+          setErrormsg('Failed to check claim status');
+        }
+      } catch (error: any) {
+        console.error(error);
+      }
     }
   }, [address]);
 
