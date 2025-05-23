@@ -79,7 +79,7 @@ export default function ClaimButton() {
     args: [address],
   })
 
-console.log(hasClaimed)
+console.log(isSuccess)
 
   // Initialize public client
 
@@ -131,6 +131,9 @@ console.log(hasClaimed)
       console.error(err);
     } finally {
       setIsClaiming(false);
+      if(isSuccess){
+        setHasClaim(true)
+      }
     }
   };
 
