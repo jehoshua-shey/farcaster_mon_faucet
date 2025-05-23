@@ -168,7 +168,7 @@ export default function ClaimButton() {
           {hasClaimed === null ? (
             <React.Fragment>
               <p>{claimRes}</p>
-              <p>Checking claim status...</p>
+              <p>{claimRes}</p>
             </React.Fragment>
           ) : hasClaimed ? (
             <p>You have already claimed 0.1 MON.</p>
