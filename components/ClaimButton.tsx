@@ -1,15 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createPublicClient, createWalletClient, custom, http } from 'viem';
 import oneTimeClaimAbi from '../abis/OneTimeClaim.json';
 
 import { useMiniAppContext } from "@/hooks/use-miniapp-context";
-import { parseEther } from "viem";
 import {
   useAccount,
   useConnect,
   useDisconnect,
+  useReadContract,
   useSendTransaction,
   useSwitchChain,
   useWaitForTransactionReceipt,
@@ -73,11 +72,9 @@ export default function ClaimButton() {
 
 
   // Initialize public client
-  const publicClient = createPublicClient({
-    chain: monadTestnet,
-    transport: http(),
-  });
 
+
+  // Check txn status
   useEffect(() => {
     if (isSuccess) {
       setSuccess(true);
@@ -95,23 +92,27 @@ export default function ClaimButton() {
   // Check claim status
   useEffect(() => {
     if (address) {
-      publicClient
-        .readContract({
-          address: CONTRACT_ADDRESS,
-          abi: oneTimeClaimAbi,
-          functionName: 'hasClaimed',
-          args: [address],
-        })
-        .then((result: any) => setHasClaimed(result))
-        .catch((err) => {
-          setErrormsg('Failed to check claim status');
-          console.error(err);
-        });
+      try {
+        const result = useReadContract({
+        abi: oneTimeClaimAbi,
+        address: CONTRACT_ADDRESS,
+        functionName: 'hasClaimed',
+        args: [address],
+      })
+
+      if(result) {
+        setHasClaimed(true)
+      } else {
+        setErrormsg('Failed to check claim status');
+      }
+      } catch (error: any) {
+        console.error(error);
+      }
     }
   }, [address]);
 
 
-  
+
   // Handle claim
   const handleClaim = async () => {
 
