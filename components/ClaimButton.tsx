@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import oneTimeClaimAbi from '../abis/OneTimeClaim.json';
+import React from 'react';
 
 import { useMiniAppContext } from "@/hooks/use-miniapp-context";
 import {
@@ -50,6 +51,7 @@ export default function ClaimButton() {
   const [isClaiming, setIsClaiming] = useState(false);
   const [errormsg, setErrormsg] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [claimRes, setClaimRes] = useState() as any
 
   const { isEthProviderAvailable } = useMiniAppContext();
   const { isConnected, address, chainId } = useAccount();
@@ -94,20 +96,22 @@ export default function ClaimButton() {
     if (address) {
       try {
         const result = useReadContract({
-        abi: oneTimeClaimAbi,
-        address: CONTRACT_ADDRESS,
-        functionName: 'hasClaimed',
-        args: [address],
-      })
+          abi: oneTimeClaimAbi,
+          address: CONTRACT_ADDRESS,
+          functionName: 'hasClaimed',
+          args: [address],
+        })
 
-      if(result) {
-        setHasClaimed(true)
-        alert(result)
-      } else {
-        alert(result)
-        setHasClaimed(false)
-        setErrormsg('Failed to check claim status');
-      }
+        setClaimRes(result)
+
+        if (result) {
+          setHasClaimed(true)
+          alert(result)
+        } else {
+          alert(result)
+          setHasClaimed(false)
+          setErrormsg('Failed to check claim status');
+        }
       } catch (error: any) {
         console.error(error);
       }
@@ -162,7 +166,10 @@ export default function ClaimButton() {
         <>
           <p>Connected Address: {address}</p>
           {hasClaimed === null ? (
-            <p>Checking claim status...</p>
+            <React.Fragment>
+              <p>{claimRes}</p>
+              <p>Checking claim status...</p>
+            </React.Fragment>
           ) : hasClaimed ? (
             <p>You have already claimed 0.1 MON.</p>
           ) : (
