@@ -95,7 +95,10 @@ console.log(isSuccess)
 
   useEffect(() => {
       setHasClaim(hasClaimed)
-  }, [hasClaimed])
+      if(isSuccess) {
+        setIsClaiming(false)
+      }
+  }, [hasClaimed, isSuccess])
 
 
   // Handle claim
@@ -129,12 +132,7 @@ console.log(isSuccess)
     } catch (err: any) {
       setErrormsg('Claim failed: ' + (err.message || 'Unknown errormsg'));
       console.error(err);
-    } finally {
-      setIsClaiming(false);
-      if(isSuccess){
-        setHasClaim(true)
-      }
-    }
+    } 
   };
 
 
