@@ -79,7 +79,7 @@ export default function ClaimButton() {
     args: [address],
   })
 
-
+console.log(hasClaimed)
 
   // Initialize public client
 
@@ -93,7 +93,9 @@ export default function ClaimButton() {
 
   // Check claim status
 
-
+  useEffect(() => {
+      setHasClaim(hasClaimed)
+  }, [hasClaimed])
 
 
   // Handle claim
