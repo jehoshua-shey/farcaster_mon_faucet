@@ -145,7 +145,6 @@ console.log(hasClaimed)
           <p>Connected Address: {address}</p>
           {hasClaim === null ? (
             <React.Fragment>
-              <p>{hasClaimed.toString()}</p>
               <p>Checking claim status...</p>
             </React.Fragment>
           ) : hasClaim ? (
