@@ -97,6 +97,7 @@ console.log(isSuccess)
       setHasClaim(hasClaimed)
       if(isSuccess) {
         setIsClaiming(false)
+        setHasClaim(true)
       }
   }, [hasClaimed, isSuccess])
 
