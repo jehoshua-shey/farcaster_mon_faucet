@@ -102,7 +102,10 @@ export default function ClaimButton() {
 
       if(result) {
         setHasClaimed(true)
+        alert(result)
       } else {
+        alert(result)
+        setHasClaimed(false)
         setErrormsg('Failed to check claim status');
       }
       } catch (error: any) {
